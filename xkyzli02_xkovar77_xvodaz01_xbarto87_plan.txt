@@ -1,0 +1,35 @@
+Stanovené termíny
+	Termín	Splněná věc
+	20.3.	Založení společného GITu a trella
+	21.3.	Založení projektu
+	28.3. 	UI, testy matematické knihovny
+	4.4.	Matematická knihovna
+	11.4.	Mockup, propojení UI a mat. knihovny
+	18.4.	Profiling, uživatelská příručka, instalátor
+	23.4.	Prezentace, odevzdání ZIPu
+	
+Rozdělení
+	Uživatelská příručka	   	 Jiří
+	Korekce příručky			 všichni
+	Instalátor				     Jiří
+	Profiling				     Jiří
+	UI						     Viktor
+	Mockup UI s dalšími funkcemi Viktor
+	Logika						 Stanislav, Jiří
+	Matematická knihovna	     Stanislav
+	Testy mat. knihovny		     Zbyšek
+	Prezentace na obhajobu	     Zbyšek
+	
+Komunikační kanály
+	Issue tracking na GitHubu
+	Trello - todo listy
+	Facebook - zbytek
+	
+Stanovená pravidla
+	Commity a programová dokumentace v AJ
+	Zbytek v Češtině
+	
+Správa verzí - GIT (https://github.com/kysel/IVSproj1)
+
+Poznámky
+	Code review + refaktoring každý týden, pokud to bude možné
