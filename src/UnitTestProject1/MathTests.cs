@@ -64,5 +64,12 @@ namespace Calculator_Tests
             Assert.Equals(5.0, math.div(0.5, 0.1));
             Assert.Equals(-0.4, math.div(-0.2, 0.5));
         }
+
+        [TestMethod]
+        public void TestFactorial()
+        {
+            Assert.Equals(6, math.fact(3));
+            Assert.Equals(3628800, math.fact(10));
+        }
     }
 }
