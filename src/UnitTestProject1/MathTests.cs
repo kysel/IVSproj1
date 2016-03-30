@@ -41,6 +41,16 @@ namespace Calculator_Tests
             Assert.Equals(-0.1, math.sub(0.2, 0.3));
         }
 
+        [TestMethod]
+        public void TestMultiplication()
+        {
+            //integers
+            Assert.Equals(32, math.mul(16, 2));
+            Assert.Equals(-50, math.mul(5, -10));
 
+            //floats
+            Assert.Equals(0.05, math.mul(0.5, 0.1));
+            Assert.Equals(-0.06, math.mul(-0.2, 0.3));
+        }
     }
 }
