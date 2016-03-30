@@ -28,5 +28,19 @@ namespace Calculator_Tests
             //floats
             Assert.Equals(0.4, math.add(0.1, 0.3));
         }
+
+        [TestMethod]
+        public void TestSubstraction()
+        {
+            //integers
+            Assert.Equals(10, math.sub(16, 6));
+            Assert.Equals(15, math.sub(5, -10));
+
+            //floats
+            Assert.Equals(0.4, math.sub(0.5, 0.1));
+            Assert.Equals(-0.1, math.sub(0.2, 0.3));
+        }
+
+
     }
 }
