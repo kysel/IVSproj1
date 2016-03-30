@@ -8,5 +8,6 @@ namespace Calculator
 {
     public class Math
     {
+
     }
 }
