@@ -52,5 +52,17 @@ namespace Calculator_Tests
             Assert.Equals(0.05, math.mul(0.5, 0.1));
             Assert.Equals(-0.06, math.mul(-0.2, 0.3));
         }
+
+        [TestMethod]
+        public void TestDivision()
+        {
+            //integers
+            Assert.Equals(8, math.div(16, 2));
+            Assert.Equals(-2, math.div(10, -5));
+
+            //floats
+            Assert.Equals(5.0, math.div(0.5, 0.1));
+            Assert.Equals(-0.4, math.div(-0.2, 0.5));
+        }
     }
 }
