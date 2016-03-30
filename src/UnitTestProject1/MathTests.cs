@@ -83,5 +83,17 @@ namespace Calculator_Tests
             Assert.Equals(25.0, math.pow(5.0, 2));
             Assert.Equals(-8.0, math.pow(-2.0, 3));
         }
+
+        [TestMethod]
+        public void TestAbsoluteValue()
+        {
+            //integers
+            Assert.Equals(10, math.abs(10));
+            Assert.Equals(10, math.abs(-10));
+
+            //floats
+            Assert.Equals(5.0, math.abs(5.0));
+            Assert.Equals(5.0, math.abs(-5.0));
+        }
     }
 }
