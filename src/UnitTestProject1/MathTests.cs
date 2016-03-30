@@ -71,5 +71,17 @@ namespace Calculator_Tests
             Assert.Equals(6, math.fact(3));
             Assert.Equals(3628800, math.fact(10));
         }
+
+        [TestMethod]
+        public void TestPower()
+        {
+            //integers
+            Assert.Equals(256, math.pow(16, 2));
+            Assert.Equals(-8, math.pow(-2, 3));
+
+            //floats
+            Assert.Equals(25.0, math.pow(5.0, 2));
+            Assert.Equals(-8.0, math.pow(-2.0, 3));
+        }
     }
 }
