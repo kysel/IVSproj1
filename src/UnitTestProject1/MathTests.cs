@@ -108,5 +108,24 @@ namespace Calculator_Tests
             Assert.Equals(256, math.parser("2^8"));
             Assert.Equals(100, math.parser("|-100|"));
         }
+
+        [TestMethod]
+        public void ParserTestComplex()
+        {
+            //multiple operands
+            Assert.Equals(6, math.parser("10+1-5"));
+            Assert.Equals(0, math.parser("30-10-10-10"));
+
+            Assert.Equals(300, math.parser("5*30*2"));
+            Assert.Equals(100, math.parser("80/4*5"));
+            Assert.Equals(100, math.parser("80*5/4"));
+
+            Assert.Equals(48, math.parser("2*4!"));
+
+            Assert.Equals(1280, math.parser("5*2^8"));
+            Assert.Equals(10000, math.parser("|-100|*100"));
+
+            Assert.Equals(1280, math.parser("|-2^8|*5"));
+        }
     }
 }
