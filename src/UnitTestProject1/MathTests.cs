@@ -95,5 +95,18 @@ namespace Calculator_Tests
             Assert.Equals(5.0, math.abs(5.0));
             Assert.Equals(5.0, math.abs(-5.0));
         }
+
+        [TestMethod]
+        public void ParserTestSimple()
+        {
+            //two operands
+            Assert.Equals(11, math.parser("10+1"));
+            Assert.Equals(20, math.parser("30-10"));
+            Assert.Equals(150, math.parser("5*30"));
+            Assert.Equals(20, math.parser("80/4"));
+            Assert.Equals(24, math.parser("4!"));
+            Assert.Equals(256, math.parser("2^8"));
+            Assert.Equals(100, math.parser("|-100|"));
+        }
     }
 }
