@@ -9,13 +9,15 @@ namespace Calculator_Tests
     [TestClass]
     public class MathTests
     {
+        double delta = 1e-6;
+
         [TestMethod]
         public void TestAddition()
         {
             Calculator.MyMath math = new Calculator.MyMath();
 
-            Assert.AreEqual(42, math.DoOperation(Operations.Add, 42), 1e-6);
-            Assert.AreEqual(50, math.DoOperation(Operations.Add, 8), 1e-6);
+            Assert.AreEqual(42, math.DoOperation(Operations.Add, 42), delta);
+            Assert.AreEqual(50, math.DoOperation(Operations.Add, 8), delta);
             Assert.AreEqual(50, math.Result());
         }
 
@@ -24,66 +26,33 @@ namespace Calculator_Tests
         {
             Calculator.MyMath math = new Calculator.MyMath();
 
-            Assert.AreEqual(100, math.DoOperation(Operations.Sub, 100), 1e-6);
-            Assert.AreEqual(50, math.DoOperation(Operations.Sub, 50), 1e-6);
-            Assert.AreEqual(0, math.DoOperation(Operations.Sub, 50), 1e-6);
-            Assert.AreEqual(0, math.Result());
-        }
-
-        /*[TestMethod]
-        public void TestObjectCreation()
-        {
-            //tests wheather constructor is working properly
-            Assert.IsTrue(math is Calculator.Math);
-        }
-
-        [TestMethod]
-        public void TestAddition()
-        {
-            //longs
-            Assert.Equals(10, math.Add(6, 4));
-            Assert.Equals(-5, math.Add(5, -10));
-
-            //doubles
-            Assert.Equals(0.4, math.Add(0.1, 0.3));
-        }
-
-        [TestMethod]
-        public void TestSubstraction()
-        {
-            //longs
-            Assert.Equals(10, math.Sub(16, 6));
-            Assert.Equals(15, math.Sub(5, -10));
-
-            //doubles
-            Assert.Equals(0.4, math.Sub(0.5, 0.1));
-            Assert.Equals(-0.1, math.Sub(0.2, 0.3));
+            Assert.AreEqual(100, math.DoOperation(Operations.Sub, 100), delta);
+            Assert.AreEqual(50, math.DoOperation(Operations.Sub, 50), delta);
+            Assert.AreEqual(0, math.DoOperation(Operations.Sub, 50), delta);
+            Assert.AreEqual(0, math.Result(), delta);
         }
 
         [TestMethod]
         public void TestMultiplication()
         {
-            //longs
-            Assert.Equals(32, math.Mul(16, 2));
-            Assert.Equals(-50, math.Mul(5, -10));
+            Calculator.MyMath math = new Calculator.MyMath();
 
-            //doubles
-            Assert.Equals(0.05, math.Mul(0.5, 0.1));
-            Assert.Equals(-0.06, math.Mul(-0.2, 0.3));
+            Assert.AreEqual(10, math.DoOperation(Operations.Mul, 10), delta);
+            Assert.AreEqual(1000, math.DoOperation(Operation.Mul, 100), delta);
+            Assert.AreEqual(1, math.DoOperation(Operation.Mul, 0.001), delta);
+            Assert.AreEqual(1, math.Result(), delta);
         }
 
         [TestMethod]
         public void TestDivision()
         {
-            //longs
-            Assert.Equals(8, math.Div(16, 2));
-            Assert.Equals(-2, math.Div(10, -5));
-
-            //doubles
-            Assert.Equals(5.0, math.Div(0.5, 0.1));
-            Assert.Equals(-0.4, math.Div(-0.2, 0.5));
+            Assert.AreEqual(100, math.DoOperation(Operations.Div, 100), delta);
+            Assert.AreEqual(0.1, math.DoOperation(Operations.Div, 1000), delta);
+            Assert.AreEqual(10, math.DoOperation(Operations.Div, 0.01), delta);
+            Assert.AreEqual(10, math.Result(), delta);
         }
 
+        /*
         [TestMethod]
         public void TestFactorial()
         {
