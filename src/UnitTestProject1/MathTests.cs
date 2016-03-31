@@ -9,9 +9,16 @@ namespace Calculator_Tests
     [TestClass]
     public class MathTests
     {
-        Calculator.Math math = new Calculator.Math();
-
         [TestMethod]
+        public void TestAddition(){
+            Calculator.MyMath math = new Calculator.MyMath();
+
+            Assert.AreEqual(42, math.DoOperation(Operations.Add, 42), 1e-6)
+            Assert.AreEqual(50, math.DoOperation(Operations.Add, 8), 1e-6);
+            Assert.AreEqual(50, math.Result());
+        }
+
+        /*[TestMethod]
         public void TestObjectCreation()
         {
             //tests wheather constructor is working properly
@@ -96,7 +103,7 @@ namespace Calculator_Tests
             Assert.Equals(5.0, math.Abs(-5.0));
         }
 
-        /*[TestMethod]
+        [TestMethod]
         public void ParserTestSimple()
         {
             //two operands
