@@ -46,10 +46,22 @@ namespace Calculator_Tests
         [TestMethod]
         public void TestDivision()
         {
+            Calculator.MyMath math = new Calculator.MyMath();
+
             Assert.AreEqual(100, math.DoOperation(Operations.Div, 100), delta);
             Assert.AreEqual(0.1, math.DoOperation(Operations.Div, 1000), delta);
             Assert.AreEqual(10, math.DoOperation(Operations.Div, 0.01), delta);
             Assert.AreEqual(10, math.Result(), delta);
+        }
+
+        [TestMethod]
+        public void TestFactorial()
+        {
+            Calculator.MyMath math = new Calculator.MyMath();
+
+            Assert.AreEqual(6, math.DoOperation(Operations.Fact, 3), delta); //faktoriál přímo zadané hodnoty
+            Assert.AreEqual(720, math.DoOperation(Operations.Fact), delta); //faktoriál hodnoty z předchozího výpočtu
+            Assert.AreEqual(720, math.Result(), delta);
         }
 
         /*
