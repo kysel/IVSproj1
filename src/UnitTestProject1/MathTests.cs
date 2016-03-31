@@ -84,6 +84,18 @@ namespace Calculator_Tests
             Assert.AreEqual(720, math.Result(), delta);
         }
 
+        [TestMethod]
+        public void TestPower()
+        {
+            Calculator.MyMath math = new Calculator.MyMath();
+
+            math.DoOperation(Operations.Set, 10);
+            Assert.AreEqual(1000, math.DoOperation(Operations.Pow, 3), delta);
+
+            math.DoOperation(Operations.Set, 0.1);
+            Assert.AreEqual(0.001, math.DoOperation(Operations.Pow, 3), delta);
+        }
+
         /*
         [TestMethod]
         public void TestPower()
