@@ -12,6 +12,26 @@ namespace Calculator_Tests
         double delta = 1e-6;
 
         [TestMethod]
+        public void TestInitialValue()
+        {
+            Calculator.MyMath math = new Calculator.MyMath();
+
+            Assert.AreEqual(0, math.Result(), delta);
+        }
+
+        [TestMethod]
+        public void TestInputValue()
+        {
+            //In some cases (power eg.) there is need for one single value given before operations
+            //Then calling math.DoOperation(Operations.Set, new_value) results in: value^new_value
+
+            Calculator.MyMath math = new Calculator.MyMath();
+
+            Assert.AreEqual(10, math.DoOperation(Operations.Set, 10), delta);
+            Assert.AreEqual(10, math.Result());
+        }
+
+        [TestMethod]
         public void TestAddition()
         {
             Calculator.MyMath math = new Calculator.MyMath();
@@ -59,19 +79,12 @@ namespace Calculator_Tests
         {
             Calculator.MyMath math = new Calculator.MyMath();
 
-            Assert.AreEqual(6, math.DoOperation(Operations.Fact, 3), delta); //faktoriál přímo zadané hodnoty
-            Assert.AreEqual(720, math.DoOperation(Operations.Fact), delta); //faktoriál hodnoty z předchozího výpočtu
+            Assert.AreEqual(6, math.DoOperation(Operations.Fact, 3), delta); //factorial of explicit value
+            Assert.AreEqual(720, math.DoOperation(Operations.Fact), delta); //factorial of value from previous computation
             Assert.AreEqual(720, math.Result(), delta);
         }
 
         /*
-        [TestMethod]
-        public void TestFactorial()
-        {
-            Assert.Equals(6, math.Fact(3));
-            Assert.Equals(3628800, math.Fact(10));
-        }
-
         [TestMethod]
         public void TestPower()
         {
