@@ -10,12 +10,24 @@ namespace Calculator_Tests
     public class MathTests
     {
         [TestMethod]
-        public void TestAddition(){
+        public void TestAddition()
+        {
             Calculator.MyMath math = new Calculator.MyMath();
 
-            Assert.AreEqual(42, math.DoOperation(Operations.Add, 42), 1e-6)
+            Assert.AreEqual(42, math.DoOperation(Operations.Add, 42), 1e-6);
             Assert.AreEqual(50, math.DoOperation(Operations.Add, 8), 1e-6);
             Assert.AreEqual(50, math.Result());
+        }
+
+        [TestMethod]
+        public void TestSubstraction()
+        {
+            Calculator.MyMath math = new Calculator.MyMath();
+
+            Assert.AreEqual(100, math.DoOperation(Operations.Sub, 100), 1e-6);
+            Assert.AreEqual(50, math.DoOperation(Operations.Sub, 50), 1e-6);
+            Assert.AreEqual(0, math.DoOperation(Operations.Sub, 50), 1e-6);
+            Assert.AreEqual(0, math.Result());
         }
 
         /*[TestMethod]
