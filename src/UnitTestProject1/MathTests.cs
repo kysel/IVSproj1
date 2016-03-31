@@ -37,7 +37,7 @@ namespace Calculator_Tests
             Calculator.MyMath math = new Calculator.MyMath();
 
             math.DoOperation(Operations.Set, 10);
-            Assert.AreEqual(0, math.DoOperation(Operations.Clear), delta);
+            Assert.AreEqual(0, math.Clear(), delta);
             Assert.AreEqual(0, math.Result(), delta);
         }
 
@@ -108,63 +108,18 @@ namespace Calculator_Tests
             Assert.AreEqual(0.001, math.Result(), delta);
         }
 
-        /*
-        [TestMethod]
-        public void TestPower()
-        {
-            //longs
-            Assert.Equals(256, math.Pow(16, 2));
-            Assert.Equals(-8, math.Pow(-2, 3));
-
-            //doubles
-            Assert.Equals(25.0, math.Pow(5.0, 2));
-            Assert.Equals(-8.0, math.Pow(-2.0, 3));
-        }
-
         [TestMethod]
         public void TestAbsoluteValue()
         {
-            //longs
-            Assert.Equals(10, math.Abs(10));
-            Assert.Equals(10, math.Abs(-10));
+            Calculator.MyMath math = new Calculator.MyMath();
 
-            //doubles
-            Assert.Equals(5.0, math.Abs(5.0));
-            Assert.Equals(5.0, math.Abs(-5.0));
+            Assert.AreEqual(0.5, math.DoOperation(Operations.Abs, -0.5), delta);
+            Assert.AreEqual(0.5, math.DoOperation(Operations.Abs, 0.5), delta);
+            Assert.AreEqual(0.5, math.Result(), delta);
+
+            math.Clear();
+            math.DoOperation(Operations.Set, -4);
+            Assert.AreEqual(4, math.DoOperation(Operations.Abs), delta);
         }
-
-        [TestMethod]
-        public void ParserTestSimple()
-        {
-            //two operands
-            Assert.Equals(11, math.parser("10+1"));
-            Assert.Equals(20, math.parser("30-10"));
-            Assert.Equals(150, math.parser("5*30"));
-            Assert.Equals(20, math.parser("80/4"));
-            Assert.Equals(24, math.parser("4!"));
-            Assert.Equals(256, math.parser("2^8"));
-            Assert.Equals(100, math.parser("|-100|"));
-        }
-
-        [TestMethod]
-        public void ParserTestComplex()
-        {
-            //multiple operands
-            Assert.Equals(6, math.parser("10+1-5"));
-            Assert.Equals(0, math.parser("30-10-10-10"));
-
-            Assert.Equals(300, math.parser("5*30*2"));
-            Assert.Equals(100, math.parser("80/4*5"));
-            Assert.Equals(100, math.parser("80*5/4"));
-
-            Assert.Equals(48, math.parser("2*4!"));
-
-            Assert.Equals(1280, math.parser("5*2^8"));
-            Assert.Equals(10000, math.parser("|-100|*100"));
-
-            Assert.Equals(1280, math.parser("|-2^8|*5"));
-        }*/
-
-        // TODO: 
     }
 }
