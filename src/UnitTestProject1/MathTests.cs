@@ -28,7 +28,17 @@ namespace Calculator_Tests
             Calculator.MyMath math = new Calculator.MyMath();
 
             Assert.AreEqual(10, math.DoOperation(Operations.Set, 10), delta);
-            Assert.AreEqual(10, math.Result());
+            Assert.AreEqual(10, math.Result(), delta);
+        }
+
+        [TestMethod]
+        public void TestClear()
+        {
+            Calculator.MyMath math = new Calculator.MyMath();
+
+            math.DoOperation(Operations.Set, 10);
+            Assert.AreEqual(0, math.DoOperation(Operations.Clear), delta);
+            Assert.AreEqual(0, math.Result(), delta);
         }
 
         [TestMethod]
@@ -38,7 +48,7 @@ namespace Calculator_Tests
 
             Assert.AreEqual(42, math.DoOperation(Operations.Add, 42), delta);
             Assert.AreEqual(50, math.DoOperation(Operations.Add, 8), delta);
-            Assert.AreEqual(50, math.Result());
+            Assert.AreEqual(50, math.Result(), delta);
         }
 
         [TestMethod]
@@ -91,9 +101,11 @@ namespace Calculator_Tests
 
             math.DoOperation(Operations.Set, 10);
             Assert.AreEqual(1000, math.DoOperation(Operations.Pow, 3), delta);
+            Assert.AreEqual(1000, math.Result(), delta);
 
             math.DoOperation(Operations.Set, 0.1);
             Assert.AreEqual(0.001, math.DoOperation(Operations.Pow, 3), delta);
+            Assert.AreEqual(0.001, math.Result(), delta);
         }
 
         /*
