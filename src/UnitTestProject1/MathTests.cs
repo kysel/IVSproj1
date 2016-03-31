@@ -21,22 +21,22 @@ namespace Calculator_Tests
         [TestMethod]
         public void TestAddition()
         {
-            //integers
+            //longs
             Assert.Equals(10, math.Add(6, 4));
             Assert.Equals(-5, math.Add(5, -10));
 
-            //floats
+            //doubles
             Assert.Equals(0.4, math.Add(0.1, 0.3));
         }
 
         [TestMethod]
         public void TestSubstraction()
         {
-            //integers
+            //longs
             Assert.Equals(10, math.Sub(16, 6));
             Assert.Equals(15, math.Sub(5, -10));
 
-            //floats
+            //doubles
             Assert.Equals(0.4, math.Sub(0.5, 0.1));
             Assert.Equals(-0.1, math.Sub(0.2, 0.3));
         }
@@ -44,11 +44,11 @@ namespace Calculator_Tests
         [TestMethod]
         public void TestMultiplication()
         {
-            //integers
+            //longs
             Assert.Equals(32, math.Mul(16, 2));
             Assert.Equals(-50, math.Mul(5, -10));
 
-            //floats
+            //doubles
             Assert.Equals(0.05, math.Mul(0.5, 0.1));
             Assert.Equals(-0.06, math.Mul(-0.2, 0.3));
         }
@@ -56,11 +56,11 @@ namespace Calculator_Tests
         [TestMethod]
         public void TestDivision()
         {
-            //integers
+            //longs
             Assert.Equals(8, math.Div(16, 2));
             Assert.Equals(-2, math.Div(10, -5));
 
-            //floats
+            //doubles
             Assert.Equals(5.0, math.Div(0.5, 0.1));
             Assert.Equals(-0.4, math.Div(-0.2, 0.5));
         }
@@ -75,11 +75,11 @@ namespace Calculator_Tests
         [TestMethod]
         public void TestPower()
         {
-            //integers
+            //longs
             Assert.Equals(256, math.Pow(16, 2));
             Assert.Equals(-8, math.Pow(-2, 3));
 
-            //floats
+            //doubles
             Assert.Equals(25.0, math.Pow(5.0, 2));
             Assert.Equals(-8.0, math.Pow(-2.0, 3));
         }
@@ -87,11 +87,11 @@ namespace Calculator_Tests
         [TestMethod]
         public void TestAbsoluteValue()
         {
-            //integers
+            //longs
             Assert.Equals(10, math.Abs(10));
             Assert.Equals(10, math.Abs(-10));
 
-            //floats
+            //doubles
             Assert.Equals(5.0, math.Abs(5.0));
             Assert.Equals(5.0, math.Abs(-5.0));
         }
