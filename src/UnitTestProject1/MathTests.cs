@@ -55,7 +55,7 @@ namespace Calculator_Tests
         public void TestSubstraction()
         {
             Calculator.MyMath math = new Calculator.MyMath();
-
+            Assert.AreEqual(200, math.DoOperation(Operations.Set, 200), delta);
             Assert.AreEqual(100, math.DoOperation(Operations.Sub, 100), delta);
             Assert.AreEqual(50, math.DoOperation(Operations.Sub, 50), delta);
             Assert.AreEqual(0, math.DoOperation(Operations.Sub, 50), delta);
@@ -66,10 +66,10 @@ namespace Calculator_Tests
         public void TestMultiplication()
         {
             Calculator.MyMath math = new Calculator.MyMath();
-
+            Assert.AreEqual(1, math.DoOperation(Operations.Set, 1), delta);
             Assert.AreEqual(10, math.DoOperation(Operations.Mul, 10), delta);
-            Assert.AreEqual(1000, math.DoOperation(Operation.Mul, 100), delta);
-            Assert.AreEqual(1, math.DoOperation(Operation.Mul, 0.001), delta);
+            Assert.AreEqual(1000, math.DoOperation(Operations.Mul, 100), delta);
+            Assert.AreEqual(1, math.DoOperation(Operations.Mul, 0.001), delta);
             Assert.AreEqual(1, math.Result(), delta);
         }
 
@@ -77,7 +77,7 @@ namespace Calculator_Tests
         public void TestDivision()
         {
             Calculator.MyMath math = new Calculator.MyMath();
-
+            Assert.AreEqual(10000, math.DoOperation(Operations.Set, 10000), delta);
             Assert.AreEqual(100, math.DoOperation(Operations.Div, 100), delta);
             Assert.AreEqual(0.1, math.DoOperation(Operations.Div, 1000), delta);
             Assert.AreEqual(10, math.DoOperation(Operations.Div, 0.01), delta);
