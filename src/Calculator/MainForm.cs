@@ -22,13 +22,15 @@ namespace Calculator {
 
 
         private void button1_Click(object sender, EventArgs e) {
-            //textBox1.AppendText(((Button)sender).Text);
-
-            //mat.DoOperation(Operations.Set, Convert.ToDouble(textBox1.Text));
+            if (!InputChangeFromUser)
+                textBox1.Text = "";
+            textBox1.AppendText(((Button)sender).Text);
         }
         
         private void button12_Click(object sender, EventArgs e) {
             _inputChanged = false;
+            if (!InputChangeFromUser)
+                return;
             textBox1.Text = _mat.DoOperation(Operations.Add, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
@@ -40,6 +42,11 @@ namespace Calculator {
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) => _inputChanged = true;
-        //todo: add support for reset
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = Convert.ToString(_mat.Clear());
+        }
+
     }
 }
