@@ -21,6 +21,8 @@ namespace Calculator {
         private bool _inputChanged;
 
 
+        private bool first = true;
+
         private void button1_Click(object sender, EventArgs e) {
             if (!InputChangeFromUser)
                 textBox1.Text = "";
@@ -28,9 +30,19 @@ namespace Calculator {
         }
         
         private void button12_Click(object sender, EventArgs e) {
-            _inputChanged = false;
-            if (!InputChangeFromUser)
+            if (first)
+            {
+                _mat.DoOperation(Operations.Set, Convert.ToDouble(textBox1.Text));
+                _mat.DoOperation(Operations.Add, 0);//seting operation as current
+                first = false;
                 return;
+            }
+            if (!InputChangeFromUser)
+            {
+                _mat.DoOperation(Operations.Add, 0);//seting operation as current
+                return;
+            }                
+            _inputChanged = false;
             textBox1.Text = _mat.DoOperation(Operations.Add, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
@@ -45,8 +57,63 @@ namespace Calculator {
 
         private void button15_Click(object sender, EventArgs e)
         {
+            first = true;
             textBox1.Text = Convert.ToString(_mat.Clear());
         }
 
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if (first)
+            {
+                _mat.DoOperation(Operations.Set, Convert.ToDouble(textBox1.Text));
+                _mat.DoOperation(Operations.Sub, 0);//seting operation as current
+                first = false;
+                return;
+            }            
+            if (!InputChangeFromUser)
+            {
+                _mat.DoOperation(Operations.Sub, 0);//seting operation as current
+                return;
+            }
+               
+            _inputChanged = false;
+            textBox1.Text = _mat.DoOperation(Operations.Sub, Convert.ToDouble(textBox1.Text)).ToString();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (first)
+            {
+                _mat.DoOperation(Operations.Set, Convert.ToDouble(textBox1.Text));
+                _mat.DoOperation(Operations.Mul, 1);//seting operation as current
+                first = false;
+                return;
+            }
+            if (!InputChangeFromUser)
+            {
+                _mat.DoOperation(Operations.Mul, 1);//seting operation as current
+                return;
+            }
+            _inputChanged = false;
+            textBox1.Text = _mat.DoOperation(Operations.Mul, Convert.ToDouble(textBox1.Text)).ToString();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (first)
+            {
+                _mat.DoOperation(Operations.Set, Convert.ToDouble(textBox1.Text));
+                _mat.DoOperation(Operations.Div, 1);//seting operation as current
+                first = false;
+                return;
+            }
+            if (!InputChangeFromUser)
+            {
+                _mat.DoOperation(Operations.Div, 1);//seting operation as current
+                return;
+            }
+            _inputChanged = false;
+            textBox1.Text = _mat.DoOperation(Operations.Div, Convert.ToDouble(textBox1.Text)).ToString();
+        }
     }
 }
