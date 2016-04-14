@@ -36,12 +36,7 @@ namespace Calculator {
                 _mat.DoOperation(Operations.Add, 0);//seting operation as current
                 first = false;
                 return;
-            }
-            if (!InputChangeFromUser)
-            {
-                _mat.DoOperation(Operations.Add, 0);//seting operation as current
-                return;
-            }                
+            }             
             _inputChanged = false;
             textBox1.Text = _mat.DoOperation(Operations.Add, Convert.ToDouble(textBox1.Text)).ToString();
         }
@@ -51,6 +46,7 @@ namespace Calculator {
             if (InputChangeFromUser || !_inputChanged)
                 op = double.Parse(textBox1.Text);
             textBox1.Text = _mat.Result(op).ToString();
+            first = true;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) => _inputChanged = true;
@@ -70,12 +66,7 @@ namespace Calculator {
                 first = false;
                 return;
             }            
-            if (!InputChangeFromUser)
-            {
-                _mat.DoOperation(Operations.Sub, 0);//seting operation as current
-                return;
-            }
-               
+           
             _inputChanged = false;
             textBox1.Text = _mat.DoOperation(Operations.Sub, Convert.ToDouble(textBox1.Text)).ToString();
         }
@@ -89,11 +80,7 @@ namespace Calculator {
                 first = false;
                 return;
             }
-            if (!InputChangeFromUser)
-            {
-                _mat.DoOperation(Operations.Mul, 1);//seting operation as current
-                return;
-            }
+           
             _inputChanged = false;
             textBox1.Text = _mat.DoOperation(Operations.Mul, Convert.ToDouble(textBox1.Text)).ToString();
         }
@@ -105,11 +92,6 @@ namespace Calculator {
                 _mat.DoOperation(Operations.Set, Convert.ToDouble(textBox1.Text));
                 _mat.DoOperation(Operations.Div, 1);//seting operation as current
                 first = false;
-                return;
-            }
-            if (!InputChangeFromUser)
-            {
-                _mat.DoOperation(Operations.Div, 1);//seting operation as current
                 return;
             }
             _inputChanged = false;
