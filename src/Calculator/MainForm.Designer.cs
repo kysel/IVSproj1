@@ -46,6 +46,9 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button0 = new System.Windows.Forms.Button();
             this.bClear = new System.Windows.Forms.Button();
+            this.bFact = new System.Windows.Forms.Button();
+            this.bPower = new System.Windows.Forms.Button();
+            this.bAbsolute = new System.Windows.Forms.Button();
             this.numbersPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -163,56 +166,56 @@
             // bMultiply
             // 
             this.bMultiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bMultiply.Location = new System.Drawing.Point(307, 168);
+            this.bMultiply.Location = new System.Drawing.Point(221, 161);
             this.bMultiply.Margin = new System.Windows.Forms.Padding(2);
             this.bMultiply.Name = "bMultiply";
             this.bMultiply.Size = new System.Drawing.Size(37, 36);
             this.bMultiply.TabIndex = 9;
             this.bMultiply.Text = "×";
             this.bMultiply.UseVisualStyleBackColor = true;
-            this.bMultiply.Click += new System.EventHandler(this.button10_Click);
+            this.bMultiply.Click += new System.EventHandler(this.bMul_Click);
             // 
             // bDivide
             // 
             this.bDivide.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bDivide.Location = new System.Drawing.Point(307, 228);
+            this.bDivide.Location = new System.Drawing.Point(221, 218);
             this.bDivide.Margin = new System.Windows.Forms.Padding(2);
             this.bDivide.Name = "bDivide";
             this.bDivide.Size = new System.Drawing.Size(37, 36);
             this.bDivide.TabIndex = 10;
             this.bDivide.Text = "÷";
             this.bDivide.UseVisualStyleBackColor = true;
-            this.bDivide.Click += new System.EventHandler(this.button11_Click);
+            this.bDivide.Click += new System.EventHandler(this.bDiv_Click);
             // 
             // bAdd
             // 
             this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bAdd.Location = new System.Drawing.Point(307, 56);
+            this.bAdd.Location = new System.Drawing.Point(221, 49);
             this.bAdd.Margin = new System.Windows.Forms.Padding(2);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(37, 36);
             this.bAdd.TabIndex = 11;
             this.bAdd.Text = "+";
             this.bAdd.UseVisualStyleBackColor = true;
-            this.bAdd.Click += new System.EventHandler(this.button12_Click);
+            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 
             // bSubstract
             // 
             this.bSubstract.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bSubstract.Location = new System.Drawing.Point(307, 114);
+            this.bSubstract.Location = new System.Drawing.Point(221, 107);
             this.bSubstract.Margin = new System.Windows.Forms.Padding(2);
             this.bSubstract.Name = "bSubstract";
             this.bSubstract.Size = new System.Drawing.Size(37, 36);
             this.bSubstract.TabIndex = 12;
             this.bSubstract.Text = "-";
             this.bSubstract.UseVisualStyleBackColor = true;
-            this.bSubstract.Click += new System.EventHandler(this.button13_Click);
+            this.bSubstract.Click += new System.EventHandler(this.bSub_Click);
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Window;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(123, 56);
+            this.textBox1.Location = new System.Drawing.Point(37, 49);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -236,7 +239,7 @@
             this.bResult.TabIndex = 11;
             this.bResult.Text = "=";
             this.bResult.UseVisualStyleBackColor = true;
-            this.bResult.Click += new System.EventHandler(this.button14_Click);
+            this.bResult.Click += new System.EventHandler(this.bResult_Click);
             // 
             // button2
             // 
@@ -273,7 +276,7 @@
             this.numbersPanel.Controls.Add(this.button0, 0, 3);
             this.numbersPanel.Controls.Add(this.bResult, 2, 3);
             this.numbersPanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.numbersPanel.Location = new System.Drawing.Point(123, 93);
+            this.numbersPanel.Location = new System.Drawing.Point(37, 86);
             this.numbersPanel.Margin = new System.Windows.Forms.Padding(2);
             this.numbersPanel.Name = "numbersPanel";
             this.numbersPanel.RowCount = 4;
@@ -318,20 +321,59 @@
             // bClear
             // 
             this.bClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bClear.Location = new System.Drawing.Point(307, 284);
+            this.bClear.Location = new System.Drawing.Point(221, 274);
             this.bClear.Margin = new System.Windows.Forms.Padding(2);
             this.bClear.Name = "bClear";
             this.bClear.Size = new System.Drawing.Size(37, 36);
             this.bClear.TabIndex = 17;
             this.bClear.Text = "C";
             this.bClear.UseVisualStyleBackColor = true;
-            this.bClear.Click += new System.EventHandler(this.button15_Click);
+            this.bClear.Click += new System.EventHandler(this.bClear_Click);
+            // 
+            // bFact
+            // 
+            this.bFact.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bFact.Location = new System.Drawing.Point(281, 48);
+            this.bFact.Margin = new System.Windows.Forms.Padding(2);
+            this.bFact.Name = "bFact";
+            this.bFact.Size = new System.Drawing.Size(37, 36);
+            this.bFact.TabIndex = 18;
+            this.bFact.Text = "!";
+            this.bFact.UseVisualStyleBackColor = true;
+            this.bFact.Click += new System.EventHandler(this.bFact_Click);
+            // 
+            // bPower
+            // 
+            this.bPower.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bPower.Location = new System.Drawing.Point(281, 107);
+            this.bPower.Margin = new System.Windows.Forms.Padding(2);
+            this.bPower.Name = "bPower";
+            this.bPower.Size = new System.Drawing.Size(37, 36);
+            this.bPower.TabIndex = 19;
+            this.bPower.Text = "x²";
+            this.bPower.UseVisualStyleBackColor = true;
+            this.bPower.Click += new System.EventHandler(this.bPower_Click);
+            // 
+            // bAbsolute
+            // 
+            this.bAbsolute.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bAbsolute.Location = new System.Drawing.Point(281, 161);
+            this.bAbsolute.Margin = new System.Windows.Forms.Padding(2);
+            this.bAbsolute.Name = "bAbsolute";
+            this.bAbsolute.Size = new System.Drawing.Size(37, 36);
+            this.bAbsolute.TabIndex = 20;
+            this.bAbsolute.Text = "|x|";
+            this.bAbsolute.UseVisualStyleBackColor = true;
+            this.bAbsolute.Click += new System.EventHandler(this.bAbsolute_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 407);
+            this.ClientSize = new System.Drawing.Size(341, 407);
+            this.Controls.Add(this.bAbsolute);
+            this.Controls.Add(this.bPower);
+            this.Controls.Add(this.bFact);
             this.Controls.Add(this.bClear);
             this.Controls.Add(this.numbersPanel);
             this.Controls.Add(this.textBox1);
@@ -369,5 +411,8 @@
         private System.Windows.Forms.Button bResult;
         private System.Windows.Forms.TableLayoutPanel numbersPanel;
         private System.Windows.Forms.Button bClear;
+        private System.Windows.Forms.Button bFact;
+        private System.Windows.Forms.Button bPower;
+        private System.Windows.Forms.Button bAbsolute;
     }
 }

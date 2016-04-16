@@ -29,20 +29,21 @@ namespace Calculator {
                 textBox1.Text = "";
             textBox1.AppendText(((Button)sender).Text);
         }
-        
-        private void button12_Click(object sender, EventArgs e) {
+
+        private void bAdd_Click(object sender, EventArgs e)
+        {
             if (_first)
             {
                 _mat.DoOperation(Operations.Set, Convert.ToDouble(textBox1.Text));
                 _mat.DoOperation(Operations.Add, 0);//seting operation as current
                 _first = false;
                 return;
-            }             
+            }
             _inputChanged = false;
             textBox1.Text = _mat.DoOperation(Operations.Add, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
-        private void button14_Click(object sender, EventArgs e) {
+        private void bResult_Click(object sender, EventArgs e) {
             double? op = null;
             if (InputChangeFromUser || !_inputChanged)
                 op = double.Parse(textBox1.Text);
@@ -52,13 +53,13 @@ namespace Calculator {
 
         private void textBox1_TextChanged(object sender, EventArgs e) => _inputChanged = true;
 
-        private void button15_Click(object sender, EventArgs e)
+        private void bClear_Click(object sender, EventArgs e)
         {
             _first = true;
             textBox1.Text = Convert.ToString(_mat.Clear());
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void bSub_Click(object sender, EventArgs e)
         {
             if (_first)
             {
@@ -67,12 +68,11 @@ namespace Calculator {
                 _first = false;
                 return;
             }            
-           
             _inputChanged = false;
             textBox1.Text = _mat.DoOperation(Operations.Sub, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void bMul_Click(object sender, EventArgs e)
         {
             if (_first)
             {
@@ -86,7 +86,7 @@ namespace Calculator {
             textBox1.Text = _mat.DoOperation(Operations.Mul, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void bDiv_Click(object sender, EventArgs e)
         {
             if (_first)
             {
@@ -98,7 +98,46 @@ namespace Calculator {
             _inputChanged = false;
             textBox1.Text = _mat.DoOperation(Operations.Div, Convert.ToDouble(textBox1.Text)).ToString();
         }
-        
+
+        private void bFact_Click(object sender, EventArgs e)
+        {
+            if (_first)
+            {
+                _mat.DoOperation(Operations.Set, Convert.ToDouble(textBox1.Text));
+                _mat.DoOperation(Operations.Fact, 1);//seting operation as current
+                _first = false;
+                return;
+            }
+            _inputChanged = false;
+            textBox1.Text = _mat.DoOperation(Operations.Fact, Convert.ToDouble(textBox1.Text)).ToString();
+        }
+
+        private void bPower_Click(object sender, EventArgs e)
+        {
+            if (_first)
+            {
+                _mat.DoOperation(Operations.Set, Convert.ToDouble(textBox1.Text));
+                _mat.DoOperation(Operations.Pow, 1);//seting operation as current
+                _first = false;
+                return;
+            }
+            _inputChanged = false;
+            textBox1.Text = _mat.DoOperation(Operations.Pow, Convert.ToDouble(textBox1.Text)).ToString();
+        }
+
+        private void bAbsolute_Click(object sender, EventArgs e)
+        {
+            if (_first)
+            {
+                _mat.DoOperation(Operations.Set, Convert.ToDouble(textBox1.Text));
+                _mat.DoOperation(Operations.Abs, 1);//seting operation as current
+                _first = false;
+                return;
+            }
+            _inputChanged = false;
+            textBox1.Text = _mat.DoOperation(Operations.Abs, Convert.ToDouble(textBox1.Text)).ToString();
+        }
+
         protected override void OnKeyDown(KeyEventArgs e)
         {
             switch (e.KeyCode)
