@@ -21,7 +21,9 @@ namespace Calculator {
         /// </summary>
         private bool _inputChanged;
 
-        //todo: comment this field
+        /// <summary>
+        /// True if the first value was given
+        /// </summary>
         private bool _first = true;
 
         private void bNumber_Click(object sender, EventArgs e) {
