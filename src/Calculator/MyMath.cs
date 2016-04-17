@@ -20,7 +20,9 @@ namespace Calculator
     public class MyMath
     {
         private Operations _currentOperation;
-        private double _currentResult;
+        public double CurrentResult { get; private set; }
+        private double _lastOperand;
+        
 
         public double DoOperation(Operations oper, double? op=null)
         {
@@ -29,62 +31,59 @@ namespace Calculator
             {
                 case Operations.Set:
                     Debug.Assert(op.HasValue, "op must have value");
-                    _currentResult = op.Value;
+                    CurrentResult = op.Value;
                     break;
                 case Operations.Add:
                     Debug.Assert(op.HasValue, "op must have value");
-                    _currentResult += op.Value;
+                    CurrentResult += op.Value;
                     break;
                 case Operations.Sub:
                     Debug.Assert(op.HasValue, "op must have value");
-                    _currentResult -= op.Value;
+                    CurrentResult -= op.Value;
                     break;
                 case Operations.Mul:
                     Debug.Assert(op.HasValue, "op must have value");
-                    _currentResult *= op.Value;
+                    CurrentResult *= op.Value;
                     break;
                 case Operations.Div:
                     Debug.Assert(op.HasValue, "op must have value");
-                    _currentResult /= op.Value;
+                    CurrentResult /= op.Value;
                     break;
                 case Operations.Fact:
                     if (op.HasValue)
-                        _currentResult = op.Value;
-                        var x = Convert.ToInt32(_currentResult);
-                    _currentResult = Fact(x);
+                        CurrentResult = op.Value;
+                        var x = Convert.ToInt32(CurrentResult);
+                    CurrentResult = Fact(x);
                     break;
                 case Operations.Pow:
                     Debug.Assert(op.HasValue, "op must have value");
-                    _currentResult = Power(op.Value);
+                    CurrentResult = Power(op.Value);
                     break;
                 case Operations.Abs:
                     if (op.HasValue)
-                        _currentResult = op.Value;
-                    _currentResult = Abs();
+                        CurrentResult = op.Value;
+                    CurrentResult = Abs();
                     break;
             }
-            return _currentResult;
+            return CurrentResult;
         }
 
-        public double Result()
-        {
-            switch (_currentOperation)
-            {
-                    
-            }
-            return _currentResult;
+        public double Result(double? op = null) {
+            if(op.HasValue)
+                _lastOperand = op.Value;
+            return DoOperation(_currentOperation, _lastOperand);
         }
 
         public double Clear()
         {
-            _currentResult = 0;
+            CurrentResult = 0;
             _currentOperation = Operations.NoOp;
-            return _currentResult;
+            return CurrentResult;
         }
 
-        private double Abs() => Math.Abs(_currentResult);
+        private double Abs() => Math.Abs(CurrentResult);
 
-        private double Power(double x) => Math.Pow(_currentResult, x);
+        private double Power(double x) => Math.Pow(CurrentResult, x);
 
         private long Fact(int x) {
             if (x == 0)
