@@ -185,7 +185,18 @@ namespace Calculator {
                     button9.PerformClick();
                     break;
                 case Keys.Oemplus:
-                    bResult.PerformClick();
+                case Keys.Add:
+                    bAdd.PerformClick();
+                    break;
+                case Keys.OemMinus:
+                case Keys.Subtract:
+                    bSubstract.PerformClick();
+                    break;
+                case Keys.Multiply:
+                    bMultiply.PerformClick();
+                    break;
+                case Keys.Divide:
+                    bDivide.PerformClick();
                     break;
                 default:
                     base.OnKeyDown(e);
