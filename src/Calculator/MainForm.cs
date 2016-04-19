@@ -140,69 +140,78 @@ namespace Calculator {
             textBox1.Text = _mat.DoOperation(Operations.Abs, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.NumPad0:
-                case Keys.D0:
+        protected override void OnKeyPress(KeyPressEventArgs e) {
+            e.Handled = true;
+            switch (e.KeyChar) {
+                case '0':
                     button0.PerformClick();
                     break;
-                case Keys.NumPad1:
-                case Keys.D1:
+                case '1':
                     button1.PerformClick();
                     break;
-                case Keys.NumPad2:
-                case Keys.D2:
+                case '2':
                     button2.PerformClick();
                     break;
-                case Keys.NumPad3:
-                case Keys.D3:
+                case '3':
                     button3.PerformClick();
                     break;
-                case Keys.NumPad4:
-                case Keys.D4:
+                case '4':
                     button4.PerformClick();
                     break;
-                case Keys.NumPad5:
-                case Keys.D5:
+                case '5':
                     button5.PerformClick();
                     break;
-                case Keys.NumPad6:
-                case Keys.D6:
+                case '6':
                     button6.PerformClick();
                     break;
-                case Keys.NumPad7:
-                case Keys.D7:
+                case '7':
                     button7.PerformClick();
                     break;
-                case Keys.NumPad8:
-                case Keys.D8:
+                case '8':
                     button8.PerformClick();
                     break;
-                case Keys.NumPad9:
-                case Keys.D9:
+                case '9':
                     button9.PerformClick();
                     break;
-                case Keys.Oemplus:
-                case Keys.Add:
+                case '+':
                     bAdd.PerformClick();
                     break;
-                case Keys.OemMinus:
-                case Keys.Subtract:
+                case '-':
                     bSubstract.PerformClick();
                     break;
-                case Keys.Multiply:
+                case '*':
+                case 'x':
                     bMultiply.PerformClick();
                     break;
-                case Keys.Divide:
+                case '\\':
+                case '/':
                     bDivide.PerformClick();
                     break;
+                case '!':
+                    bFact.PerformClick();
+                    break;
                 default:
-                    base.OnKeyDown(e);
-                    return;
+                    e.Handled = false;
+                    break;
             }
+            base.OnKeyPress(e);
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e) {
             e.Handled = true;
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    bResult.PerformClick();
+                    break;
+                case Keys.Delete:
+                    bClear.PerformClick();
+                    break;
+                default:
+                    e.Handled = false;
+                    break;
+            }
+            base.OnKeyDown(e);
         }
     }
 }
