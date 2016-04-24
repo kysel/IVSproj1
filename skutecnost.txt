@@ -1,0 +1,18 @@
+Stanovené termíny
+	Termíny se nám dařily celkem dodržovat, ze začátku jsme byli v předstihu, pak jsme se opozdili maximálně o pár dní oproti plánu a nakonec se to srovnalo.
+
+Rozdělení
+	Všichni členové dodržovali rozdělení, plnili co měli a pokud byla potřeba, tak pomohli spolupracovníkům s jejich problémy.
+
+Komunikační kanály
+	Komunikace probíhala na předem stanovených kanálech. Navržená služba Trello nám byla užitečná zejména v dokončovacích pracích na projektu, kdy jsme si rozdělili nedodělky a měli přehled, co se má dělat a kdo si to vzal na starost.
+
+Stanovená pravidla
+	Pravidla ohledně commitů v AJ se dodržela a ostatní komunikace dle předchozí dohody probíhala v Češtině.
+	
+Správa verzí - GIT (https://github.com/kysel/IVSproj1)
+	GitHub jako verzovací nástroj se osvědčil, úspěšně se s ním naučili i členové, kteří jej dříve nepoužívali.
+	
+Code review probíhal většinou po každém větším commitu.
+
+Refaktoring jsme dělali jeden na začátku a pak díky dobrému promyšlení již nebyl potřeba.
