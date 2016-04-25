@@ -286,5 +286,15 @@ namespace Calculator {
             }
             base.OnKeyDown(e);
         }
+
+        /// <summary>
+        /// <c>bDecimal_Click</c> is called, when button with decimal point is clicked. 
+        /// If so, value of button is appended to text field.
+        /// </summary>
+        /// <param name="sender">Clicked number button object</param>
+        private void bDecimal_Click(object sender, EventArgs e)
+        {
+            textBox1.AppendText(((Button)sender).Text);
+        }
     }
 }
