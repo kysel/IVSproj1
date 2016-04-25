@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Xml.Schema;
 
 
 namespace Calculator {
@@ -30,6 +31,30 @@ namespace Calculator {
         private bool _first = true;
 
         /// <summary>
+        /// Format and print number to the text box, handles NaN.
+        /// </summary>
+        /// <param name="val">NUmber, that has to be printed</param>
+        private void SetDisplayValue(double val) {
+            if (double.IsNaN(val)) {
+                textBox1.Text = "not a number";
+                _mat.Clear();
+            }
+            else if (double.IsPositiveInfinity(val))
+                textBox1.Text = "infinity";
+            else if (double.IsNegativeInfinity(val))
+                textBox1.Text = "negative infinity";
+            else {
+                const int maxLength = 16;
+                var numStr = val.ToString($"G{maxLength}");
+                if (numStr.Contains("E") && numStr.Length > maxLength){
+                    var exponentLength = numStr.Length - numStr.IndexOf('E');
+                    numStr = numStr.Substring(0, maxLength - 4) + numStr.Substring(numStr.IndexOf('E'));
+                }
+                textBox1.Text = numStr;
+            }
+        }
+
+        /// <summary>
         /// <c>bNumber_Click</c> is called, when number button is clicked. 
         /// If so, value of button is appended to text field.
         /// </summary>
@@ -55,7 +80,7 @@ namespace Calculator {
                 return;
             }
             _inputChanged = false;
-            textBox1.Text = _mat.DoOperation(Operations.Add, Convert.ToDouble(textBox1.Text)).ToString();
+            SetDisplayValue(_mat.DoOperation(Operations.Add, Convert.ToDouble(textBox1.Text)));
         }
 
         /// <summary>
@@ -67,7 +92,7 @@ namespace Calculator {
             double? op = null;
             if (InputChangeFromUser || !_inputChanged)
                 op = double.Parse(textBox1.Text);
-            textBox1.Text = _mat.Result(op).ToString();
+            SetDisplayValue(_mat.Result(op));
             _first = true;
         }
 
@@ -85,7 +110,7 @@ namespace Calculator {
         private void bClear_Click(object sender, EventArgs e)
         {
             _first = true;
-            textBox1.Text = Convert.ToString(_mat.Clear());
+            SetDisplayValue(_mat.Clear());
         }
 
         /// <summary>
@@ -103,7 +128,7 @@ namespace Calculator {
                 return;
             }            
             _inputChanged = false;
-            textBox1.Text = _mat.DoOperation(Operations.Sub, Convert.ToDouble(textBox1.Text)).ToString();
+            SetDisplayValue(_mat.DoOperation(Operations.Sub, Convert.ToDouble(textBox1.Text)));
         }
 
         /// <summary>
@@ -122,7 +147,7 @@ namespace Calculator {
             }
            
             _inputChanged = false;
-            textBox1.Text = _mat.DoOperation(Operations.Mul, Convert.ToDouble(textBox1.Text)).ToString();
+            SetDisplayValue(_mat.DoOperation(Operations.Mul, Convert.ToDouble(textBox1.Text)));
         }
 
         /// <summary>
@@ -140,7 +165,7 @@ namespace Calculator {
                 return;
             }
             _inputChanged = false;
-            textBox1.Text = _mat.DoOperation(Operations.Div, Convert.ToDouble(textBox1.Text)).ToString();
+            SetDisplayValue(_mat.DoOperation(Operations.Div, Convert.ToDouble(textBox1.Text)));
         }
 
         /// <summary>
@@ -152,13 +177,13 @@ namespace Calculator {
         {
             if (_first)
             {
-                _mat.DoOperation(Operations.Set, Convert.ToDouble(textBox1.Text));
-                _mat.DoOperation(Operations.Fact, 1);//seting operation as current
+                _mat.DoOperation(Operations.Set, 0);
+                _mat.DoOperation(Operations.Fact, Convert.ToDouble(textBox1.Text));//seting operation as current
                 _first = false;
                 return;
             }
             _inputChanged = false;
-            textBox1.Text = _mat.DoOperation(Operations.Fact, Convert.ToDouble(textBox1.Text)).ToString();
+            SetDisplayValue(_mat.DoOperation(Operations.Fact, Convert.ToDouble(textBox1.Text)));
         }
 
         /// <summary>
@@ -176,7 +201,7 @@ namespace Calculator {
                 return;
             }
             _inputChanged = false;
-            textBox1.Text = _mat.DoOperation(Operations.Pow, Convert.ToDouble(textBox1.Text)).ToString();
+            SetDisplayValue(_mat.DoOperation(Operations.Pow, Convert.ToDouble(textBox1.Text)));
         }
 
         /// <summary>
@@ -194,7 +219,7 @@ namespace Calculator {
                 return;
             }
             _inputChanged = false;
-            textBox1.Text = _mat.DoOperation(Operations.Abs, Convert.ToDouble(textBox1.Text)).ToString();
+            SetDisplayValue(_mat.DoOperation(Operations.Abs, Convert.ToDouble(textBox1.Text)));
         }
 
         /// <summary>

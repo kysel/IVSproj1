@@ -71,6 +71,8 @@ namespace Calculator
                     break;
                 case Operations.Div:
                     Debug.Assert(op.HasValue, "op must have value");
+                    if(Math.Abs(op.Value) < 1e-6)
+                        CurrentResult = double.NaN;
                     CurrentResult /= op.Value;
                     break;
                 case Operations.Fact:
@@ -133,10 +135,16 @@ namespace Calculator
         /// </summary>
         /// <param name="x">The base of factorial</param>
         /// <returns>Factorial of <c>x</c></returns>
-        private long Fact(int x) {
+        private double Fact(int x)
+        {
+            if (x < 0)
+                return double.NaN;
             if (x == 0)
                 return 1;
-            return Enumerable.Range(1, x).Aggregate((acc, n) => acc*n);
+            var fact = Enumerable.Range(1, x).Aggregate((acc, n) => acc*n);
+            if (fact == 0)
+                return double.PositiveInfinity;
+            return fact;
         }
     }
 }
