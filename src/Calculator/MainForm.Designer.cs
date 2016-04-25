@@ -399,7 +399,9 @@
             this.Controls.Add(this.bAdd);
             this.Controls.Add(this.bDivide);
             this.Controls.Add(this.bMultiply);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Calculator";
             this.numbersPanel.ResumeLayout(false);

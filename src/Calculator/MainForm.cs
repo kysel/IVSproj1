@@ -44,11 +44,11 @@ namespace Calculator {
             else if (double.IsNegativeInfinity(val))
                 textBox1.Text = "negative infinity";
             else {
-                const int maxLength = 16;
+                const int maxLength = 10;
                 var numStr = val.ToString($"G{maxLength}");
                 if (numStr.Contains("E") && numStr.Length > maxLength){
                     var exponentLength = numStr.Length - numStr.IndexOf('E');
-                    numStr = numStr.Substring(0, maxLength - 4) + numStr.Substring(numStr.IndexOf('E'));
+                    numStr = numStr.Substring(0, maxLength - exponentLength + 1) + numStr.Substring(numStr.IndexOf('E'));
                 }
                 textBox1.Text = numStr;
             }

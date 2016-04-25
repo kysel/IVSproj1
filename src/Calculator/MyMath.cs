@@ -56,6 +56,7 @@ namespace Calculator
                 case Operations.Set:
                     Debug.Assert(op.HasValue, "op must have value");
                     CurrentResult = op.Value;
+                    _lastOperand = op.Value;
                     break;
                 case Operations.Add:
                     Debug.Assert(op.HasValue, "op must have value");
