@@ -16,7 +16,7 @@ namespace Calculator_Tests
         {
             Calculator.MyMath math = new Calculator.MyMath();
 
-            Assert.AreEqual(0, math.Result(), delta);
+            Assert.AreEqual(0, math.CurrentResult, delta);
         }
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace Calculator_Tests
             Calculator.MyMath math = new Calculator.MyMath();
 
             Assert.AreEqual(10, math.DoOperation(Operations.Set, 10), delta);
-            Assert.AreEqual(10, math.Result(), delta);
+            Assert.AreEqual(10, math.CurrentResult, delta);
         }
 
         [TestMethod]
@@ -38,7 +38,7 @@ namespace Calculator_Tests
 
             math.DoOperation(Operations.Set, 10);
             Assert.AreEqual(0, math.Clear(), delta);
-            Assert.AreEqual(0, math.Result(), delta);
+            Assert.AreEqual(0, math.CurrentResult, delta);
         }
 
         [TestMethod]
@@ -48,7 +48,7 @@ namespace Calculator_Tests
 
             Assert.AreEqual(42, math.DoOperation(Operations.Add, 42), delta);
             Assert.AreEqual(50, math.DoOperation(Operations.Add, 8), delta);
-            Assert.AreEqual(50, math.Result(), delta);
+            Assert.AreEqual(50, math.CurrentResult, delta);
         }
 
         [TestMethod]
@@ -59,7 +59,7 @@ namespace Calculator_Tests
             Assert.AreEqual(100, math.DoOperation(Operations.Sub, 100), delta);
             Assert.AreEqual(50, math.DoOperation(Operations.Sub, 50), delta);
             Assert.AreEqual(0, math.DoOperation(Operations.Sub, 50), delta);
-            Assert.AreEqual(0, math.Result(), delta);
+            Assert.AreEqual(0, math.CurrentResult, delta);
         }
 
         [TestMethod]
@@ -70,7 +70,7 @@ namespace Calculator_Tests
             Assert.AreEqual(10, math.DoOperation(Operations.Mul, 10), delta);
             Assert.AreEqual(1000, math.DoOperation(Operations.Mul, 100), delta);
             Assert.AreEqual(1, math.DoOperation(Operations.Mul, 0.001), delta);
-            Assert.AreEqual(1, math.Result(), delta);
+            Assert.AreEqual(1, math.CurrentResult, delta);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@ namespace Calculator_Tests
             Assert.AreEqual(100, math.DoOperation(Operations.Div, 100), delta);
             Assert.AreEqual(0.1, math.DoOperation(Operations.Div, 1000), delta);
             Assert.AreEqual(10, math.DoOperation(Operations.Div, 0.01), delta);
-            Assert.AreEqual(10, math.Result(), delta);
+            Assert.AreEqual(10, math.CurrentResult, delta);
         }
 
         [TestMethod]
@@ -91,7 +91,7 @@ namespace Calculator_Tests
 
             Assert.AreEqual(6, math.DoOperation(Operations.Fact, 3), delta); //factorial of explicit value
             Assert.AreEqual(720, math.DoOperation(Operations.Fact), delta); //factorial of value from previous computation
-            Assert.AreEqual(720, math.Result(), delta);
+            Assert.AreEqual(720, math.CurrentResult, delta);
         }
 
         [TestMethod]
@@ -101,11 +101,11 @@ namespace Calculator_Tests
 
             math.DoOperation(Operations.Set, 10);
             Assert.AreEqual(1000, math.DoOperation(Operations.Pow, 3), delta);
-            Assert.AreEqual(1000, math.Result(), delta);
+            Assert.AreEqual(1000, math.CurrentResult, delta);
 
             math.DoOperation(Operations.Set, 0.1);
             Assert.AreEqual(0.001, math.DoOperation(Operations.Pow, 3), delta);
-            Assert.AreEqual(0.001, math.Result(), delta);
+            Assert.AreEqual(0.001, math.CurrentResult, delta);
         }
 
         [TestMethod]
@@ -115,7 +115,7 @@ namespace Calculator_Tests
 
             Assert.AreEqual(0.5, math.DoOperation(Operations.Abs, -0.5), delta);
             Assert.AreEqual(0.5, math.DoOperation(Operations.Abs, 0.5), delta);
-            Assert.AreEqual(0.5, math.Result(), delta);
+            Assert.AreEqual(0.5, math.CurrentResult, delta);
 
             math.Clear();
             math.DoOperation(Operations.Set, -4);
