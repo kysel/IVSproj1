@@ -43,6 +43,7 @@
             this.bResult = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.numbersPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.bDecimal = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button0 = new System.Windows.Forms.Button();
             this.bClear = new System.Windows.Forms.Button();
@@ -264,6 +265,7 @@
             this.numbersPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.numbersPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.numbersPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.numbersPanel.Controls.Add(this.bDecimal, 1, 3);
             this.numbersPanel.Controls.Add(this.button9, 2, 0);
             this.numbersPanel.Controls.Add(this.button8, 1, 0);
             this.numbersPanel.Controls.Add(this.button7, 0, 0);
@@ -286,6 +288,22 @@
             this.numbersPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.numbersPanel.Size = new System.Drawing.Size(161, 260);
             this.numbersPanel.TabIndex = 16;
+            // 
+            // bDecimal
+            // 
+            this.bDecimal.AutoSize = true;
+            this.bDecimal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bDecimal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bDecimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bDecimal.Location = new System.Drawing.Point(55, 197);
+            this.bDecimal.Margin = new System.Windows.Forms.Padding(2);
+            this.bDecimal.MinimumSize = new System.Drawing.Size(34, 37);
+            this.bDecimal.Name = "bDecimal";
+            this.bDecimal.Size = new System.Drawing.Size(49, 61);
+            this.bDecimal.TabIndex = 12;
+            this.bDecimal.Text = ",";
+            this.bDecimal.UseVisualStyleBackColor = true;
+            this.bDecimal.Click += new System.EventHandler(this.bDecimal_Click);
             // 
             // button7
             // 
@@ -350,7 +368,7 @@
             this.bPower.Name = "bPower";
             this.bPower.Size = new System.Drawing.Size(37, 36);
             this.bPower.TabIndex = 19;
-            this.bPower.Text = "x²";
+            this.bPower.Text = "xⁿ";
             this.bPower.UseVisualStyleBackColor = true;
             this.bPower.Click += new System.EventHandler(this.bPower_Click);
             // 
@@ -414,5 +432,6 @@
         private System.Windows.Forms.Button bFact;
         private System.Windows.Forms.Button bPower;
         private System.Windows.Forms.Button bAbsolute;
+        private System.Windows.Forms.Button bDecimal;
     }
 }

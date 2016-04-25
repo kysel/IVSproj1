@@ -115,11 +115,19 @@ namespace Calculator {
 
         /// <summary>
         /// <c>bSub_Click</c> is called, when "-" (substract) button is clicked. 
+        /// If current result in <c>_mat</c> is equal to text in text box, then minus is appended to text field. 
         /// If there is no valid number in <c>_mat</c> inner buffer, the buffer is set to value of text field and next operation is set to Sub.
         /// In other case the given number is substracted from inner buffer and displayed in text field. 
         /// </summary>
         private void bSub_Click(object sender, EventArgs e)
         {
+            if (!InputChangeFromUser)
+            {
+                if (!InputChangeFromUser)
+                    textBox1.Text = "";
+                textBox1.AppendText(((Button)sender).Text);
+                return;
+            }
             if (_first)
             {
                 _mat.DoOperation(Operations.Set, Convert.ToDouble(textBox1.Text));
@@ -302,6 +310,16 @@ namespace Calculator {
                     break;
             }
             base.OnKeyDown(e);
+        }
+
+        /// <summary>
+        /// <c>bDecimal_Click</c> is called, when button with decimal point is clicked. 
+        /// If so, value of button is appended to text field.
+        /// </summary>
+        /// <param name="sender">Clicked number button object</param>
+        private void bDecimal_Click(object sender, EventArgs e)
+        {
+            textBox1.AppendText(((Button)sender).Text);
         }
     }
 }
