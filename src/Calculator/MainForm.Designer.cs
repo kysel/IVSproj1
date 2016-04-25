@@ -368,7 +368,7 @@
             this.bPower.Name = "bPower";
             this.bPower.Size = new System.Drawing.Size(37, 36);
             this.bPower.TabIndex = 19;
-            this.bPower.Text = "x²";
+            this.bPower.Text = "xⁿ";
             this.bPower.UseVisualStyleBackColor = true;
             this.bPower.Click += new System.EventHandler(this.bPower_Click);
             // 
