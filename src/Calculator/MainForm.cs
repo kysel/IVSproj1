@@ -9,6 +9,9 @@ namespace Calculator {
             KeyPreview = true;  //allow shortcuts
         }
 
+        /// <summary>
+        /// Creates an instance <c>_mat</c> of object <c>MyMath</c>.
+        /// </summary>
         private MyMath _mat = new MyMath();
 
         /// <summary>
@@ -26,12 +29,22 @@ namespace Calculator {
         /// </summary>
         private bool _first = true;
 
+        /// <summary>
+        /// <c>bNumber_Click</c> is called, when number button is clicked. 
+        /// If so, value of button is appended to text field.
+        /// </summary>
+        /// <param name="sender">Clicked number button object</param>
         private void bNumber_Click(object sender, EventArgs e) {
             if (!InputChangeFromUser)
                 textBox1.Text = "";
             textBox1.AppendText(((Button)sender).Text);
         }
 
+        /// <summary>
+        /// <c>bAdd_Click</c> is called, when "+" (add) button is clicked.
+        /// If there is no valid number in <c>_mat</c> inner buffer, the buffer is set to value of text field and next operation is set to Add.
+        /// In other case the given number is added to inner buffer and displayed in text field. 
+        /// </summary>
         private void bAdd_Click(object sender, EventArgs e)
         {
             if (_first)
@@ -45,6 +58,11 @@ namespace Calculator {
             textBox1.Text = _mat.DoOperation(Operations.Add, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
+        /// <summary>
+        /// <c>bResult_Click</c> is called, when "=" (equal) button is clicked.
+        /// It performs last operation with buffer and number in text field. The result is shown in text field.
+        /// When clicked repeatedly, the last operation is performed on number in text field.
+        /// </summary>
         private void bResult_Click(object sender, EventArgs e) {
             double? op = null;
             if (InputChangeFromUser || !_inputChanged)
@@ -53,14 +71,28 @@ namespace Calculator {
             _first = true;
         }
 
+        /// <summary>
+        /// <c>textBox1_TextChanged</c> is setter for <c>_inputChanged</c>. It sets its value to true. 
+        /// Is ised for marking, that value in text field has changed since last operation.
+        /// </summary>
         private void textBox1_TextChanged(object sender, EventArgs e) => _inputChanged = true;
 
+        /// <summary>
+        /// <c>bClear_Click</c> is called, when "C" (clear) button is clicked.
+        /// It sets private variable <c>_first</c> to true to mark the calculators initial state. 
+        /// Also the text field is cleared.
+        /// </summary>
         private void bClear_Click(object sender, EventArgs e)
         {
             _first = true;
             textBox1.Text = Convert.ToString(_mat.Clear());
         }
 
+        /// <summary>
+        /// <c>bSub_Click</c> is called, when "-" (substract) button is clicked. 
+        /// If there is no valid number in <c>_mat</c> inner buffer, the buffer is set to value of text field and next operation is set to Sub.
+        /// In other case the given number is substracted from inner buffer and displayed in text field. 
+        /// </summary>
         private void bSub_Click(object sender, EventArgs e)
         {
             if (_first)
@@ -74,6 +106,11 @@ namespace Calculator {
             textBox1.Text = _mat.DoOperation(Operations.Sub, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
+        /// <summary>
+        /// <c>bMul_Click</c> is called, when "×" (multiply) button is clicked.
+        /// If there is no valid number in <c>_mat</c> inner buffer, the buffer is set to value of text field and next operation is set to Mul.
+        /// In other case the number in inner buffer is multiplied by input number and result is displayed in text field.
+        /// </summary>
         private void bMul_Click(object sender, EventArgs e)
         {
             if (_first)
@@ -88,6 +125,11 @@ namespace Calculator {
             textBox1.Text = _mat.DoOperation(Operations.Mul, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
+        /// <summary>
+        /// <c>Div_Click</c> is called, when "/" (divide) button is clicked.
+        /// If there is no valid number in <c>_mat</c> inner buffer, the buffer is set to value of text field and next operation is set to Div.
+        /// In other case the number in inner buffer is divided by input number and result is displayed in text field.
+        /// </summary>
         private void bDiv_Click(object sender, EventArgs e)
         {
             if (_first)
@@ -101,6 +143,11 @@ namespace Calculator {
             textBox1.Text = _mat.DoOperation(Operations.Div, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
+        /// <summary>
+        /// <c>bFact_Click</c> is called, when "!" (factorial) button is clicked. 
+        /// If there is no valid number in <c>_mat</c> inner buffer, the buffer is set to value of text field and next operation is set to Fact.
+        /// In other case the factorial is computed from number in text field and result is displayed in text field.
+        /// </summary>
         private void bFact_Click(object sender, EventArgs e)
         {
             if (_first)
@@ -114,6 +161,11 @@ namespace Calculator {
             textBox1.Text = _mat.DoOperation(Operations.Fact, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
+        /// <summary>
+        /// <c>bPower_Click</c> is caled, when "x^n" (power) button is clicked.
+        /// If there is no valid number in <c>_mat</c> inner buffer, the buffer is set to value of text field and next operation is set to Pow.
+        /// In other case the number in inner buffer is powered by input number.
+        /// </summary>
         private void bPower_Click(object sender, EventArgs e)
         {
             if (_first)
@@ -127,6 +179,11 @@ namespace Calculator {
             textBox1.Text = _mat.DoOperation(Operations.Pow, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
+        /// <summary>
+        /// <c>bAbsolute_Click</c> is called, when "|x|" (absolute) button is clicked.
+        /// If there is no valid number in <c>_mat</c> inner buffer, the buffer is set to value of text field and next operation is set to Abs.
+        /// In other case the number in inner buffer is set to its absolute value.
+        /// </summary>
         private void bAbsolute_Click(object sender, EventArgs e)
         {
             if (_first)
@@ -140,6 +197,10 @@ namespace Calculator {
             textBox1.Text = _mat.DoOperation(Operations.Abs, Convert.ToDouble(textBox1.Text)).ToString();
         }
 
+        /// <summary>
+        /// <c>OnKeyPress</c> handles keys pressed on physical keyboard and performs clicks on virtual one.
+        /// </summary>
+        /// <param name="e">is an object of pressed key.</param>
         protected override void OnKeyPress(KeyPressEventArgs e) {
             e.Handled = true;
             switch (e.KeyChar) {
@@ -197,6 +258,10 @@ namespace Calculator {
             base.OnKeyPress(e);
         }
 
+        /// <summary>
+        /// <c>OnKeyDown</c> handles press on keys Enter and Delete on physical keyboard and performs clicks on corresponding virtual buttons.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnKeyDown(KeyEventArgs e) {
             e.Handled = true;
             switch (e.KeyCode)
